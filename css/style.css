@@ -1,0 +1,380 @@
+body {
+   background:#f7f7f7 url(../img/pattern.png) repeat top left;
+    background-size:auto;
+    
+}
+.top_pic_page {
+	position: relative;
+	box-shadow: 0px 1px 1px 1px #9C9C9C;
+	margin: 0 auto;
+	width: 945px;
+	height: 120px;
+	
+    background-size:auto;
+	
+}
+.menu_bar {
+	position: relative;
+	top: 1%;
+	margin: 6 auto;
+	width: 959px;
+	height: 55px;
+	z-index: 1;
+    background-size:auto;
+}
+
+.body_page{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+.body_page_login{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	height: 380px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+
+.body_page_about{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	height: 1100px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+
+.body_page_detail{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	height: 1000px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+
+
+.more_detail{
+	position: relative;
+	
+	margin: 10 auto;
+	top: 12px;
+	width: 959px;
+	height: 200px;
+	z-index: 1;
+	background-color:#47c9af;
+    background-size:auto;
+}
+.member{
+	position: relative;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	width: 900px;
+	height: 1050px;
+	z-index: 1;
+	top: 0px;
+	border-radius: 30px;
+    background-size:auto;
+}
+.bg_home{
+	position: relative;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	width: 900px;
+	height: 460px;
+	z-index: 1;
+	border-radius: 30px;
+    background-size:auto;
+}
+.bg_detail{
+	position: relative;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	width: 900px;
+	height: 940px;
+	z-index: 1;
+	top: 0px;
+	border-radius: 30px;
+    background-size:auto;
+}
+.bg_login{
+	position: relative;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	width: 900px;
+	height: 320px;
+	z-index: 1;
+	top: 0px;
+	border-radius: 30px;
+    background-size:auto;
+}
+
+a{
+	color:#000;
+	text-decoration:none;
+}
+a:hover{
+	color:#000;
+	text-decoration:none;
+}
+
+a1{
+	font-size: 1.3em;
+	font-family:"ThaiSans Neue";
+	color:#000000;
+	
+}
+
+
+
+h1{
+	display: block;
+    font-size: 1.5em;
+	color:#FFFFFF;
+	font-family:"ThaiSans Neue";
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+}
+h1:hover{
+	color:#528B8B;
+}
+h2{
+	display: block;
+    font-size: 1.3em;
+	color:#36D7B7;
+	font-family:"ThaiSans Neue";
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+}
+h2:hover{
+	color:#00FF7F;
+}
+h3{
+	display: block;
+    font-size: 1.42em;
+	text-shadow: #89C4F4 0.01em 0.01em 0.022em;
+	font-family:"ThaiSans Neue";
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+}
+h3:hover{
+	color:#22A7F0;
+}
+h4{
+	display: block;
+    font-size: 1.3em;
+	text-shadow: #ECF0F1 0.01em 0.01em 0.02em;
+    margin-top: 0.28em;
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+}
+hr{
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.50), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.50), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.50), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.50), rgba(0,0,0,0)); 
+}
+
+.pic1{
+	position: absolute;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	left:40%;
+	width: 220px;
+	height: 320px;
+	z-index: 1;
+	top: 0px;
+	border-radius: 30px;
+	background-color:#F8F7FF;
+   
+}
+
+.pic2{
+	position: absolute;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	left:10%;
+	width: 220px;
+	height: 320px;
+	z-index: 1;
+	top: 320px;
+	border-radius: 30px;
+	background-color:#F8F7FF;
+   
+}
+
+.pic3{
+	position: absolute;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	left:70%;
+	width: 220px;
+	height: 320px;
+	z-index: 1;
+	top: 320px;
+	border-radius: 30px;
+	background-color:#F8F7FF;
+   
+}
+.pic4{
+	position: absolute;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	left:10%;
+	width: 220px;
+	height: 320px;
+	z-index: 1;
+	top: 700px;
+	border-radius: 30px;
+	background-color:#F8F7FF;
+   
+}
+
+.pic5{
+	position: absolute;
+	box-shadow: 0px 0px 1px 0px #36D7B7;
+	margin: 6 auto;
+	left:70%;
+	width: 220px;
+	height: 320px;
+	z-index: 1;
+	top: 700px;
+	border-radius: 30px;
+	background-color:#F8F7FF;
+   
+}
+#panel_pic{
+    position:absolute;
+     top:40px;
+     height:197px;
+     width:148px;
+	 left: 40px;
+}
+
+
+
+#panel_user{
+    position:absolute;
+     top:50px;
+     height:30px;
+     width:300px;
+     left:37%;
+}
+#panel_pass{
+    position:absolute;
+     top:90px;
+     height:30px;
+     width:300px;
+     left:37%;
+}
+
+#panel_login{
+    position:absolute;
+     background-color:#C8F7C5;
+     top:130px;
+     height:30px;
+     width:40px;
+     left:37%;
+}
+
+
+#det_pic1 {
+	position: relative;
+	top:275px;
+	left:35%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+    background-size:auto;
+	
+}
+
+#det_pic2 {
+	position: relative;
+	top:505px;
+	left:10%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+    background-size:auto;
+	
+}
+#det_pic3 {
+	position: relative;
+	top:412px;
+	left:61%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+    background-size:auto;
+	
+}
+
+#det_pic4 {
+	position: relative;
+	top:680px;
+	left:10%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+    background-size:auto;
+	
+}
+
+#det_pic5 {
+	position: relative;
+	top:591px;
+	left:61%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+    background-size:auto;
+	
+}
+
+#btn{
+	position: auto;
+	top:1px;
+	left:61%;
+	width: 300px;
+	height: 90px;
+	z-index: 1;
+	background: #f7f7f7;
+    background-size:auto;
+	
+}
+
+
+
+
+
+
+
+
+
+

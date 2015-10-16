@@ -1,0 +1,49 @@
+.body_page_cpe07{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+
+.cpe07_ID_project{
+	position: relative;
+	top: 2%;
+	left: 2%;
+	width: 300px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+
+.cpe07_name{
+	position: relative;
+	top: 2%;
+	left: 2%;
+	width: 300px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+
+.cpe07_guide{
+	position: relative;
+	top: 2%;
+	left: 2%;
+	width: 500px;
+	height: 185px;
+	z-index: 1;
+    background-size:auto;
+}
+.cpe07_save{
+	position: relative;
+	top: 7%;
+	left: 10%;
+	width: 300px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}

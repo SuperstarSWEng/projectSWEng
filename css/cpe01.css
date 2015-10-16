@@ -1,0 +1,68 @@
+.body_page_cpe01{
+	position: relative;
+	box-shadow: 0px 1px 2px 1px #9C9C9C;
+	margin:9 auto;
+	top: 2%;
+	width: 959px;
+	height: 800px;
+	z-index: 1;
+	background-color:#F8F8FF;
+    background-size:auto;
+}
+
+.cpe01_name{
+	position: relative;
+	top: 2%;
+	left: 2%;
+	width: 300px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+.cpe01_name_student{
+	position: relative;
+	top: 7%;
+	left: 2%;
+	width: 200px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+
+
+.cpe01_name_student_id{
+	position: relative;
+	top: 7%;
+	left: 2%;
+	width: 100px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+.cpe01_name_student_phone{
+	position: relative;
+	top: 7%;
+	left: 2%;
+	width: 130px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+.cpe01_name_student_email{
+	position: relative;
+	top: 7%;
+	left: 2%;
+	width: 200px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
+.cpe01_name_student_save{
+	position: relative;
+	top: 7%;
+	left: 2%;
+	width: 300px;
+	height: 50px;
+	z-index: 1;
+    background-size:auto;
+}
