@@ -146,6 +146,103 @@
 					<br><br>
 					 &nbsp;&nbsp;&nbsp;E-mail: nitipatt55@email.nu.ac.th
 					</div>
+			</div>
+			
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+
+		<center><h1>ผู้พัฒนาต่อ</h1></center>
+
+			
+		<div class="picD1">
+		<div id='panel_pic'>
+				<div id='csspicD1'>
+		
+				</div>
+
+		</div>
+		</div>
+		<div id='det_picD1'>
+					<div id='cssdet_pic'>
+					 &nbsp;&nbsp;&nbsp;ID: 55362028
+					<br><br>
+					  &nbsp;&nbsp;&nbsp;Name: Mr.Tarawee Plubplatong
+					<br><br>
+					 &nbsp;&nbsp;&nbsp;E-mail: p.tarawee@gmail.com
+					</div>
+			</div>
+			
+		<div class="picD2">
+		<div id='panel_pic'>
+				<div id='csspicD2'>
+		
+				</div>
+				
+		</div>
+		</div>
+		<div id='det_picD2'>
+					<div id='cssdet_pic'>
+					 &nbsp;&nbsp;&nbsp;ID: 55362394
+					<br><br>
+					  &nbsp;&nbsp;&nbsp;Name: Mr.Sarayut Ruangsaeng
+					<br><br>
+					 &nbsp;&nbsp;&nbsp;E-mail: sarayutr55@email.nu.ac.th
+					</div>
+			</div>
+			
+		<div class="picD3">
+		<div id='panel_pic'>
+				<div id='csspicD3'>
+		
+				</div>
+				
+		</div>
+		</div>
+		<div id='det_picD3'>
+					<div id='cssdet_pic'>
+					 &nbsp;&nbsp;&nbsp;ID: 55361922
+					<br><br>
+					  &nbsp;&nbsp;&nbsp;Name: Mr.Nattapoom  Kamhanghan
+					<br><br>
+					 &nbsp;&nbsp;&nbsp;E-mail: nattapoom.kajom@gmail.com
+					</div>
+			</div>
+			
+		<div class="picD4">
+		<div id='panel_pic'>
+				<div id='csspicD4'>
+		
+				</div>
+				
+		</div>
+		</div>
+		<div id='det_picD4'>
+					<div id='cssdet_pic'>
+					 &nbsp;&nbsp;&nbsp;ID: 55362363
+					<br><br>
+					  &nbsp;&nbsp;&nbsp;Name: Miss.Wijitra Rattanason
+					<br><br>
+					 &nbsp;&nbsp;&nbsp;E-mail: wijitrar55@email.nu.ac.th
+					</div>
+			</div>
+			
+		<div class="picD5">
+		<div id='panel_pic'>
+				<div id='csspicD5'>
+		
+				</div>
+				
+		</div>
+		</div>	
+		<div id='det_picD5'>
+					<div id='cssdet_pic'>
+					 &nbsp;&nbsp;&nbsp;ID: 55362295
+					<br><br>
+					  &nbsp;&nbsp;&nbsp;Name: Miss.Malulee Pota
+					<br><br>
+					 &nbsp;&nbsp;&nbsp;E-mail: maluleep55@emai..nu.ac.th
+					</div>
 			</div>	
 		
 		
@@ -156,11 +253,11 @@
 		
 		<div class="more_detail">
 		<br>
-		<center><a1>เว็บไซต์นี้เป็นส่วนหนึ่งของ รายวิชา 305351 Computer System Engineering</a1></center>
+		<center><a1>เว็บไซต์นี้เป็นส่วนหนึ่งของ รายวิชา 305351 Computer System Engineering , 305471 Software Engineering</a1></center>
 		<br>
 		<center><a1>อาจารย์ผู้สอน ดร.สุรเดช จิตประไพกุลศาล</a1></center>
 		<br>
-		<center><a1>2015 © Copyright nu.ac.th . All rights reserved.</a1></center>
+		<center><a1>Copyright © 2015 by nu.ac.th,SuperStar . All rights reserved.</a1></center>
 		</div> 
 	
 	

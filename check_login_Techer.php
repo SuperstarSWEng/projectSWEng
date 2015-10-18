@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	mysql_connect("localhost","root","4007like");
+	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
 	strSQL1 = "SELECT * FROM member_teacher WHERE ID_Teacher = '".mysql_real_escape_string($_POST['txtUsername'])."' 
 			and Password_Teacher = '".mysql_real_escape_string($_POST['txtPassword'])."'";

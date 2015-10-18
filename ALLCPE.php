@@ -13,10 +13,10 @@
 	 	
 	$servername = "localhost";
 	$username = "root";
-	$password = "4007like";
+	$password = "1234";
 	$dbname = "cpe_db";
 
-	mysql_connect("localhost","root","4007like");
+	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
 	mysql_query("SET NAMES UTF8");
 	

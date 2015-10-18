@@ -8,7 +8,7 @@
 
 	 	
 	
-	mysql_connect("localhost","root","4007like");
+	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
 	$strSQL = "SELECT * FROM member_student WHERE Student_ID = '".$_SESSION['Student_ID']."' ";
 	$objQuery = mysql_query($strSQL);
