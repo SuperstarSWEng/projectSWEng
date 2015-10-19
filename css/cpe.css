@@ -90,6 +90,16 @@
   transform: perspective(5px) rotateX(2deg);
   transform-origin: bottom;
 }
+
+#crumbs ul li a:before {
+	content: "";  
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;
+	border-left: 40px solid #d4f2ff;
+	position: absolute; left: 0; top: 0;
+	padding: 30px 40px 0 80px;
+}
+
 #cssmenucpe > ul > li.active > a:after,
 #cssmenucpe > ul > li:hover > a:after,
 #cssmenucpe > ul > li > a:hover:after {

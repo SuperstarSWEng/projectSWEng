@@ -10,13 +10,12 @@
 		
 	}
 
-	 	
 	$servername = "localhost";
 	$username = "root";
-	$password = "12345";
+	$password = "1234";
 	$dbname = "cpe_db";
 
-	mysql_connect("localhost","root","12345");
+	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
 	mysql_query("SET NAMES UTF8");
 	
@@ -24,7 +23,44 @@
 	$objQuery_SQL_std1 = mysql_query($SQL_std1);
 	$objResult_SQL_std1 = mysql_fetch_array($objQuery_SQL_std1);
 	
-	$check  = 4;
+	$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+	$objQuery_SQL_progress = mysql_query($SQL_progress);
+	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+	//echo $objResult_SQL_progress["count"];
+	if($objResult_SQL_progress["count"] > 0)
+	{
+		$check  = 1;
+		$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+		$objQuery_SQL_progress = mysql_query($SQL_progress);
+		$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+		
+		if($objResult_SQL_progress["count"] > 0)
+		{
+			$check  = 2;
+			$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+			$objQuery_SQL_progress = mysql_query($SQL_progress);
+			$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+			
+			if($objResult_SQL_progress["count"] > 0)
+			{
+				$check  = 3;
+				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+				$objQuery_SQL_progress = mysql_query($SQL_progress);
+				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+				
+				if($$objResult_SQL_progress["count"] > 0)
+				{
+					$check  = 4;
+				}
+			}
+		}	
+	}
+	else if($SQL_progress == 0)
+	{
+		$check  = 0;
+	}
+	
+
 	$pass = "padding:0.7vw;display:inline;background-color:33FF99";
 	$not = "padding:0.7vw;display:inline;background-color:write";
 	if($check == 1)
@@ -96,6 +132,16 @@
 		$state5 = $pass;
 		$state6 = $pass;
 		$state7 = $pass;
+	}
+	else
+	{
+		$state1 = $not;
+		$state2 = $not;
+		$state3 = $not;
+		$state4 = $not;
+		$state5 = $not;
+		$state6 = $not;
+		$state7 = $not;
 	}
 	
 ?>
@@ -189,13 +235,13 @@
 	{
 		echo "<br>";
 		echo "<nav >";
-		echo "<div style=";echo $state1; echo ">------CPE01------</div>";echo "&nbsp";
-		echo "<div style=";echo $state2; echo ">------CPE02------</div>";echo "&nbsp";
-		echo "<div style=";echo $state3; echo ">------CPE03------</div>";echo "&nbsp";
-		echo "<div style=";echo $state4; echo ">------CPE04------</div>";echo "&nbsp";
-		echo "<div style=";echo $state5; echo ">------CPE05------</div>";echo "&nbsp";
-		echo "<div style=";echo $state6; echo ">------CPE06------</div>";echo "&nbsp";
-		echo "<div style=";echo $state7; echo ">------CPE07------</div>";echo "&nbsp";
+		echo "<div style=";echo $state1; echo ">CPE01</div>";echo "&nbsp";
+		echo "<div style=";echo $state2; echo ">CPE02</div>";echo "&nbsp";
+		echo "<div style=";echo $state3; echo ">CPE03</div>";echo "&nbsp";
+		echo "<div style=";echo $state4; echo ">CPE04</div>";echo "&nbsp";
+		echo "<div style=";echo $state5; echo ">CPE05</div>";echo "&nbsp";
+		echo "<div style=";echo $state6; echo ">CPE06</div>";echo "&nbsp";
+		echo "<div style=";echo $state7; echo ">CPE07</div>";echo "&nbsp";
 		echo "</nav>";
 		
 		echo "<br>_____________________________________________________________________________________________________________________________________________________________________";

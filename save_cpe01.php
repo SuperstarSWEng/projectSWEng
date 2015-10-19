@@ -23,10 +23,10 @@ header("Content-Type: text/html; charset=UTF-8");
 	
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "1234";
 $dbname = "cpe_db";
 
-	mysql_connect("localhost","root","12345");
+	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
 	mysql_query("SET NAMES UTF8");
 	
