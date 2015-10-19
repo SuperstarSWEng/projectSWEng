@@ -223,5 +223,7 @@
 			});
 		</script>
 	
-	
+	<footer>
+		<div style='text-align:right'>Page SS05</div>
+	</footer>
 	</html>

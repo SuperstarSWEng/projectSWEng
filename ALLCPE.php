@@ -392,20 +392,15 @@
 		
 	}
 
-	 	
-	?>
-
-				
-		</div>
-  
-		
-		</form>
 	
-  
-		
+	?>			
+		</div>	
+		</form>
 		</div>
 	</body>
 	
 	<script type="text/javascript" src="js/jaidee.js"></script>
-	
+	<footer>
+		<div style='text-align:right'>Page SS07</div>
+	</footer>
 	</html>

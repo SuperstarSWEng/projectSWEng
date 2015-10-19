@@ -16,7 +16,7 @@
 
 	 	
 	
-	mysql_connect("localhost","root","1234");
+	mysql_connect("localhost","root","12345");
 	mysql_select_db("cpe_db");
 	mysql_query("SET NAMES UTF8");
 	
@@ -153,5 +153,7 @@
 	</body>
 	
 	<script type="text/javascript" src="js/jaidee.js"></script>
-	
+	<footer>
+		<div style='text-align:right'>Page SS14</div>
+	</footer>
 	</html>

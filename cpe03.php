@@ -438,5 +438,7 @@
 	</body>
 	
 	<script type="text/javascript" src="js/jaidee.js"></script>
-	
+	<footer>
+		<div style='text-align:right'>Page SS09</div>
+	</footer>
 	</html>

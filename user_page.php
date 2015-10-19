@@ -8,7 +8,7 @@
 
 	 	
 	
-	mysql_connect("localhost","root","1234");
+	mysql_connect("localhost","root","12345");
 	mysql_select_db("cpe_db");
 	$strSQL = "SELECT * FROM member_student WHERE Student_ID = '".$_SESSION['Student_ID']."' ";
 	$objQuery = mysql_query($strSQL);
@@ -38,4 +38,7 @@
   <br>
   <a href="logout.php">Logout</a>
 </body>
+<footer>
+		<div style='text-align:right'>Page SS17</div>
+	</footer>
 </html>

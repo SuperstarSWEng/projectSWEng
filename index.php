@@ -198,5 +198,7 @@
 			});
 		</script>
 	
-	
+	<footer>
+		<div style='text-align:right'>Page SS01</div>
+	</footer>
 	</html>

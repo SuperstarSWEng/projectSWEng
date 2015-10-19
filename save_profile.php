@@ -9,7 +9,7 @@
 		}
 		
 	}
-	mysql_connect("localhost","root","1234");
+	mysql_connect("localhost","root","12345");
 	mysql_select_db("cpe_db");
 	
 	if($_POST["txtPassword_Student"] != $_POST["txtConPassword_Student"])
