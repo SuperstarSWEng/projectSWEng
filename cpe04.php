@@ -11,7 +11,79 @@
 	}
 
 	 	
-	
+	$check  = 4;
+	$pass = "padding:0.7vw;display:inline;background-color:33FF99";
+	$not = "padding:0.7vw;display:inline;background-color:write";
+	if($check == 1)
+	{
+		$state1 = $pass;
+		$state2 = $not;
+		$state3 = $not;
+		$state4 = $not;
+		$state5 = $not;
+		$state6 = $not;
+		$state7 = $not;
+	}
+	else if($check == 2)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $not;
+		$state4 = $not;
+		$state5 = $not;
+		$state6 = $not;
+		$state7 = $not;
+	}
+	else if($check == 3)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $pass;
+		$state4 = $not;
+		$state5 = $not;
+		$state6 = $not;
+		$state7 = $not;
+	}
+	else if($check == 4)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $pass;
+		$state4 = $pass;
+		$state5 = $not;
+		$state6 = $not;
+		$state7 = $not;
+	}
+	else if($check == 5)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $pass;
+		$state4 = $pass;
+		$state5 = $pass;
+		$state6 = $not;
+		$state7 = $not;
+	}
+	else if($check == 6)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $pass;
+		$state4 = $pass;
+		$state5 = $pass;
+		$state6 = $pass;
+		$state7 = $not;
+	}
+	else if($check == 7)
+	{
+		$state1 = $pass;
+		$state2 = $pass;
+		$state3 = $pass;
+		$state4 = $pass;
+		$state5 = $pass;
+		$state6 = $pass;
+		$state7 = $pass;
+	}
 	
 ?>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -102,6 +174,18 @@
 	}
 	else
 	{
+		echo "<br>";
+		echo "<nav >";
+		echo "<div style=";echo $state1; echo ">------CPE01------</div>";echo "&nbsp";
+		echo "<div style=";echo $state2; echo ">------CPE02------</div>";echo "&nbsp";
+		echo "<div style=";echo $state3; echo ">------CPE03------</div>";echo "&nbsp";
+		echo "<div style=";echo $state4; echo ">------CPE04------</div>";echo "&nbsp";
+		echo "<div style=";echo $state5; echo ">------CPE05------</div>";echo "&nbsp";
+		echo "<div style=";echo $state6; echo ">------CPE06------</div>";echo "&nbsp";
+		echo "<div style=";echo $state7; echo ">------CPE07------</div>";echo "&nbsp";
+		echo "</nav>";
+		
+		echo "<br>_____________________________________________________________________________________________________________________________________________________________________";
 		
 		echo "<li><a href='ALLCPE.php'>CPE01</a></li>";
 		echo "<li><a href='cpe02.php'>CPE02</a></li>";
