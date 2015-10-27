@@ -35,7 +35,7 @@
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	//echo $objResult_SQL_progress["count"];
+	echo $objResult_SQL_progress["count"];
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
@@ -58,7 +58,7 @@
 			if($objResult_SQL_progress["count"] > 0)
 			{
 				$check  = 3;
-				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM proposal_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
@@ -67,6 +67,36 @@
 				if($$objResult_SQL_progress["count"] > 0)
 				{
 					$check  = 4;
+					$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+					$objQuery_SQL_progress = mysql_query($SQL_progress);
+					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+					
+					echo $objResult_SQL_progress["count"];
+					
+					if($$objResult_SQL_progress["count"] > 0)
+					{
+						$check  = 5;
+						$SQL_progress = "SELECT COUNT(ID_Project) as count FROM comment_adviser WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+						$objQuery_SQL_progress = mysql_query($SQL_progress);
+						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+						
+						echo $objResult_SQL_progress["count"];
+						
+						if($$objResult_SQL_progress["count"] > 0)
+						{
+							$check  = 6;
+							$SQL_progress = "SELECT COUNT(ID_Project) as count FROM test_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+							$objQuery_SQL_progress = mysql_query($SQL_progress);
+							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+							
+							echo $objResult_SQL_progress["count"];
+							
+							if($$objResult_SQL_progress["count"] > 0)
+							{
+								$check  = 7;
+							}
+						}
+					}
 				}
 			}
 		}	

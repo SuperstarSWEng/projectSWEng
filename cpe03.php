@@ -35,7 +35,7 @@
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	//echo $objResult_SQL_progress["count"];
+	echo $objResult_SQL_progress["count"];
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
@@ -58,7 +58,7 @@
 			if($objResult_SQL_progress["count"] > 0)
 			{
 				$check  = 3;
-				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM proposal_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
@@ -67,6 +67,36 @@
 				if($$objResult_SQL_progress["count"] > 0)
 				{
 					$check  = 4;
+					$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+					$objQuery_SQL_progress = mysql_query($SQL_progress);
+					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+					
+					echo $objResult_SQL_progress["count"];
+					
+					if($$objResult_SQL_progress["count"] > 0)
+					{
+						$check  = 5;
+						$SQL_progress = "SELECT COUNT(ID_Project) as count FROM comment_adviser WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+						$objQuery_SQL_progress = mysql_query($SQL_progress);
+						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+						
+						echo $objResult_SQL_progress["count"];
+						
+						if($$objResult_SQL_progress["count"] > 0)
+						{
+							$check  = 6;
+							$SQL_progress = "SELECT COUNT(ID_Project) as count FROM test_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+							$objQuery_SQL_progress = mysql_query($SQL_progress);
+							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+							
+							echo $objResult_SQL_progress["count"];
+							
+							if($$objResult_SQL_progress["count"] > 0)
+							{
+								$check  = 7;
+							}
+						}
+					}
 				}
 			}
 		}	
@@ -190,7 +220,7 @@
 		{
 			echo "<li class = 'box-1'><a href='ALLCPE.php'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
-			"<li class = 'active'><a href='#'>CPE03</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE03</a></li>";
 			echo "<li><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li><a href='cpe06.php'>CPE06</a></li>";
@@ -200,7 +230,7 @@
 		{
 			echo "<li class = 'box-1'><a href='ALLCPE.php'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
-			"<li class = 'active'><a href='#'>CPE03</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE03</a></li>";
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li><a href='cpe06.php'>CPE06</a></li>";
@@ -210,7 +240,7 @@
 		{
 			echo "<li class = 'box-1'><a href='ALLCPE.php'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
-			"<li class = 'active'><a href='#'>CPE03</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE03</a></li>";
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li class = 'box-1'><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li><a href='cpe06.php'>CPE06</a></li>";
@@ -220,7 +250,7 @@
 		{
 			echo "<li class = 'box-1'><a href='ALLCPE.php'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
-			"<li class = 'active'><a href='#'>CPE03</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE03</a></li>";
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li class = 'box-1'><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li class = 'box-1'><a href='cpe06.php'>CPE06</a></li>";
@@ -230,7 +260,7 @@
 		{
 			echo "<li class = 'box-1'><a href='ALLCPE.php'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
-			"<li class = 'active'><a href='#'>CPE03</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE03</a></li>";
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li class = 'box-1'><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li class = 'box-1'><a href='cpe06.php'>CPE06</a></li>";
