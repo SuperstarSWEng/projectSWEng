@@ -52,7 +52,7 @@
 			echo "<li ><a href='index.php'>Home</a></li>";
 		echo "<li class='active'><a href='#'>Detail Project</a></li>";
 		echo "<li ><a href='loginsuccess.php'>View</a></li>";
-		echo "<li ><a href='logout.php'>Logout</a></li>";
+		echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
 		echo "<li ><a href='about.php'>About</a></li>";
 		}
 		
@@ -65,7 +65,7 @@
 		echo "<li class='active'><a href='#'>Detail Project</a></li>";
 		echo "<li ><a href='ALLCPE.php'>CPE</a></li>";
 		echo "<li ><a href='loginsuccess.php'>View</a></li>";
-		echo "<li ><a href='logout.php'>Logout</a></li>";
+		echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
 		echo "<li ><a href='about.php'>About</a></li>";
 		
 	}

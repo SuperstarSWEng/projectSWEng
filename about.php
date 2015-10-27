@@ -47,10 +47,9 @@
 		<ul>
 				
 				<li ><a href='index.php'>Home</a></li>
-				<li ><a href='more.php'>Detail Project</a></li>
-				<li ><a href='login.php'>Login</a></li>
+				<li ><a href='more.php'>Detail Project</a></li>		
 				<li class='active'><a href='#'>About</a></li>
-				
+				<li class='box-2'><a href='login.php'>Login</a></li>
 		</ul>
 		</div>
 			

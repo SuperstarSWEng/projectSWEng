@@ -23,6 +23,7 @@
   line-height: 0;
   height: 0;
 }
+
 #cssmenucpe {
   width: auto;
   border-bottom: 3px solid #47c9af;
@@ -46,6 +47,7 @@
 #cssmenucpe.align-right > ul > li {
   float: right;
 }
+
 #cssmenucpe.align-right > ul > li > a {
   margin-right: 0;
   margin-left: -4px;
@@ -69,6 +71,11 @@
 #cssmenucpe > ul > li > a:hover {
   color: #ffffff;
 }
+
+#cssmenucpe > ul > li.box-1 > a:after {
+	background-color: #33FF99;
+}
+
 #cssmenucpe > ul > li > a:after {
   position: absolute;
   left: 0;
@@ -91,14 +98,6 @@
   transform-origin: bottom;
 }
 
-#crumbs ul li a:before {
-	content: "";  
-	border-top: 40px solid transparent;
-	border-bottom: 40px solid transparent;
-	border-left: 40px solid #d4f2ff;
-	position: absolute; left: 0; top: 0;
-	padding: 30px 40px 0 80px;
-}
 
 #cssmenucpe > ul > li.active > a:after,
 #cssmenucpe > ul > li:hover > a:after,
