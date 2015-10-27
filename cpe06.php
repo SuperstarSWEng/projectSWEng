@@ -23,11 +23,19 @@
 	$objQuery_SQL_std1 = mysql_query($SQL_std1);
 	$objResult_SQL_std1 = mysql_fetch_array($objQuery_SQL_std1);
 	
+	$SQL_status = "SELECT * FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+	$objQuery_SQL_status = mysql_query($SQL_status);
+	$objResult_SQL_status = mysql_fetch_array($objQuery_SQL_status);
+	
+	$member2 = "select * from student where ID_Project = '".$objResult_SQL_std1["ID_Project"]."' and Student_ID!='".$_SESSION['Student_ID']."' ";
+	$member2query = mysql_query($member2);
+	$member2result = mysql_fetch_array($member2query);
+	
 	$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	echo $objResult_SQL_progress["count"];
+	
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
@@ -36,7 +44,7 @@
 		$objQuery_SQL_progress = mysql_query($SQL_progress);
 		$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 		
-		echo $objResult_SQL_progress["count"];
+		
 		
 		if($objResult_SQL_progress["count"] > 0)
 		{
@@ -45,7 +53,7 @@
 			$objQuery_SQL_progress = mysql_query($SQL_progress);
 			$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 			
-			echo $objResult_SQL_progress["count"];
+			
 			
 			if($objResult_SQL_progress["count"] > 0)
 			{
@@ -54,7 +62,7 @@
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
-				echo $objResult_SQL_progress["count"];
+				
 				
 				if($$objResult_SQL_progress["count"] > 0)
 				{
@@ -63,7 +71,7 @@
 					$objQuery_SQL_progress = mysql_query($SQL_progress);
 					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 					
-					echo $objResult_SQL_progress["count"];
+					
 					
 					if($$objResult_SQL_progress["count"] > 0)
 					{
@@ -72,7 +80,7 @@
 						$objQuery_SQL_progress = mysql_query($SQL_progress);
 						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 						
-						echo $objResult_SQL_progress["count"];
+						
 						
 						if($$objResult_SQL_progress["count"] > 0)
 						{
@@ -81,7 +89,7 @@
 							$objQuery_SQL_progress = mysql_query($SQL_progress);
 							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 							
-							echo $objResult_SQL_progress["count"];
+							
 							
 							if($$objResult_SQL_progress["count"] > 0)
 							{
@@ -97,7 +105,7 @@
 	{
 		$check  = 0;
 	}
-	 
+	
 ?>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
@@ -264,28 +272,44 @@
 			echo "<li><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li class = 'active'><a href='#'>CPE06</a></li>";
 			echo "<li><a href='cpe07.php'>CPE07</a></li>";
-		}
-		
+		}	
 	}
-
-	 	
+ 	
 	?>
 </ul>
 </div>
 	<br>
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;รหัสโครงงาน	 </a1>
-		<form name="form1" method="post" action="#####">	
+		<form name="form1" method="post" action="save_cpe06.php">	
 		
 		<div class="cpe06_ID_project">
-			<input class="form-control" name="ID_project" type="text" id="ID_project" placeholder=" รหัสโครงงาน">
+			<input class="form-control" name="ID_project" type="text" id="ID_project" placeholder=" รหัสโครงงาน"
+			value = "<?php 
+			
+				echo $objResult_SQL_std1["ID_Project"];
+			
+			?>"
+			>
 		</div>
 		
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;ชื่อโครงงาน	 </a1>
 		<div class="cpe06_name">
-				<input class="form-control" name="project_thai_name" type="text" id="project_thai_name" placeholder="ชื่อภาษาไทย">
+				<input class="form-control" name="project_thai_name" type="text" id="project_thai_name" placeholder="ชื่อภาษาไทย"
+				value = "<?php 
+			
+				echo $objResult_SQL_status["ProjectName_TH"];
+			
+			?>"
+				>
 				
 		<br>
-				<input class="form-control" name="project_eng_name" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ">
+				<input class="form-control" name="project_eng_name" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ"
+				value = "<?php 
+			
+				echo $objResult_SQL_status["ProjectName_EN"];
+			
+			?>"
+				>
 			</div>	
 		<br><br><br>
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อนิสิตผู้ทำโครงงาน	 </a1>
@@ -306,12 +330,20 @@
 		</td>
         <td>
 		<div class="cpe06_name_student_id">
-				<input class="form-control" name="std_id1" type="text" id="std_id1" placeholder="รหัสนิสิต">
+				<input class="form-control" name="std_id1" type="text" id="std_id1" placeholder="รหัสนิสิต"
+				value = "<?php echo $objResult_SQL_std1["Student_ID"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
         <td>
 		<div class="cpe06_name_student_id">
-				<input class="form-control" name="std_id2" type="text" id="std_id2" placeholder="รหัสนิสิต">
+				<input class="form-control" name="std_id2" type="text" id="std_id2" placeholder="รหัสนิสิต"
+				value = "<?php echo $member2result["Student_ID"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
 		<td>
@@ -326,12 +358,20 @@
 		</td>
         <td>
 		<div class="cpe06_name_student_id">
-				<input class="form-control" name="std_name1" type="text" id="std_name1" placeholder="ชื่อ-นามสกุล">
+				<input class="form-control" name="std_name1" type="text" id="std_name1" placeholder="ชื่อ-นามสกุล"
+				value = "<?php echo $objResult_SQL_std1["StudentFirstName"] , " ", $objResult_SQL_std1["StudentLastName"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
         <td>
 		<div class="cpe06_name_student_id">
-				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ-นามสกุล">
+				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ-นามสกุล"
+				value = "<?php echo $member2result["StudentFirstName"] , " ", $member2result["StudentLastName"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
 		<td>
@@ -365,8 +405,8 @@
 	<tbody>
 	
 		<tr ><td>
-		<span style="padding-left:20em"><input type="radio" name="opinion_teacher" value="true">ผ่าน</span>
-		<span style="padding-left:13em"><input type="radio" name="opinion_teacher" value="false">ไม่ผ่าน</span></td></tr>
+		<span style="padding-left:20em"><input type="radio" name="opinion_teacher" value="1">ผ่าน</span>
+		<span style="padding-left:13em"><input type="radio" name="opinion_teacher" value="0">ไม่ผ่าน</span></td></tr>
 		<tr ><td></td></tr>
 		
 	 </tbody>

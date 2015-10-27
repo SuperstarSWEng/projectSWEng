@@ -23,11 +23,19 @@
 	$objQuery_SQL_std1 = mysql_query($SQL_std1);
 	$objResult_SQL_std1 = mysql_fetch_array($objQuery_SQL_std1);
 	
+	$SQL_status = "SELECT * FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+	$objQuery_SQL_status = mysql_query($SQL_status);
+	$objResult_SQL_status = mysql_fetch_array($objQuery_SQL_status);
+	
+	$member2 = "select * from student where ID_Project = '".$objResult_SQL_std1["ID_Project"]."' and Student_ID!='".$_SESSION['Student_ID']."' ";
+	$member2query = mysql_query($member2);
+	$member2result = mysql_fetch_array($member2query);
+	
 	$SQL_progress = "SELECT COUNT(ID_Project) as count FROM project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	echo $objResult_SQL_progress["count"];
+	
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
@@ -36,7 +44,7 @@
 		$objQuery_SQL_progress = mysql_query($SQL_progress);
 		$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 		
-		echo $objResult_SQL_progress["count"];
+		
 		
 		if($objResult_SQL_progress["count"] > 0)
 		{
@@ -45,7 +53,7 @@
 			$objQuery_SQL_progress = mysql_query($SQL_progress);
 			$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 			
-			echo $objResult_SQL_progress["count"];
+			
 			
 			if($objResult_SQL_progress["count"] > 0)
 			{
@@ -54,7 +62,7 @@
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
-				echo $objResult_SQL_progress["count"];
+				
 				
 				if($$objResult_SQL_progress["count"] > 0)
 				{
@@ -63,7 +71,7 @@
 					$objQuery_SQL_progress = mysql_query($SQL_progress);
 					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 					
-					echo $objResult_SQL_progress["count"];
+					
 					
 					if($$objResult_SQL_progress["count"] > 0)
 					{
@@ -72,7 +80,7 @@
 						$objQuery_SQL_progress = mysql_query($SQL_progress);
 						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 						
-						echo $objResult_SQL_progress["count"];
+						
 						
 						if($$objResult_SQL_progress["count"] > 0)
 						{
@@ -81,7 +89,7 @@
 							$objQuery_SQL_progress = mysql_query($SQL_progress);
 							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 							
-							echo $objResult_SQL_progress["count"];
+							
 							
 							if($$objResult_SQL_progress["count"] > 0)
 							{
@@ -276,18 +284,36 @@
 	
 	<br>
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;รหัสโครงงาน	 </a1>
-		<form name="form1" method="post" action="#####">	
+		<form name="form1" method="post" action="save_cpe07.php">	
 		
 		<div class="cpe07_ID_project">
-			<input class="form-control" name="ID_project" type="text" id="ID_project" placeholder=" รหัสโครงงาน">
+			<input class="form-control" name="ID_project" type="text" id="ID_project" placeholder=" รหัสโครงงาน"
+			value = "<?php 
+			
+				echo $objResult_SQL_std1["ID_Project"];
+			
+			?>"
+			>
 		
 		</div>
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;ชื่อโครงงาน	 </a1>
 		<div class="cpe07_name">
-				<input class="form-control" name="project_thai_name" type="text" id="project_thai_name" placeholder="ชื่อภาษาไทย">
+				<input class="form-control" name="project_thai_name" type="text" id="project_thai_name" placeholder="ชื่อภาษาไทย"
+				value = "<?php 
+			
+				echo $objResult_SQL_status["ProjectName_TH"];
+			
+			?>"
+				>
 				
 		<br>
-				<input class="form-control" name="project_eng_name" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ">
+				<input class="form-control" name="project_eng_name" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ"
+				value = "<?php 
+			
+				echo $objResult_SQL_status["ProjectName_EN"];
+			
+			?>"
+				>
 			</div>	
 		<br><br><br>
 		<a1>&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อนิสิตผู้ทำโครงงาน	 </a1>
@@ -308,12 +334,20 @@
 		</td>
         <td>
 		<div class="cpe07_name_student_id">
-				<input class="form-control" name="std_id1" type="text" id="std_id1" placeholder="รหัสนิสิต">
+				<input class="form-control" name="std_id1" type="text" id="std_id1" placeholder="รหัสนิสิต"
+				value = "<?php echo $objResult_SQL_std1["Student_ID"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
         <td>
 		<div class="cpe07_name_student_id">
-				<input class="form-control" name="std_id2" type="text" id="std_id2" placeholder="รหัสนิสิต">
+				<input class="form-control" name="std_id2" type="text" id="std_id2" placeholder="รหัสนิสิต"
+				value = "<?php echo $member2result["Student_ID"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
 		<td>
@@ -328,12 +362,20 @@
 		</td>
         <td>
 		<div class="cpe07_name_student_id">
-				<input class="form-control" name="std_name1" type="text" id="std_name1" placeholder="ชื่อ-นามสกุล">
+				<input class="form-control" name="std_name1" type="text" id="std_name1" placeholder="ชื่อ-นามสกุล"
+				value = "<?php echo $objResult_SQL_std1["StudentFirstName"] , " ", $objResult_SQL_std1["StudentLastName"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
         <td>
 		<div class="cpe07_name_student_id">
-				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ-นามสกุล">
+				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ-นามสกุล"
+				value = "<?php echo $member2result["StudentFirstName"] , " ", $member2result["StudentLastName"]; 
+				
+				?>"
+				>
 		</div>
 		</td>
 		<td>
@@ -362,14 +404,14 @@
 	<tbody>
 	
 		<tr ><td> 1. ผลการดำเนินงาน</td><td><span style="padding-left:4em">
-		<input type="radio" name="output" value="true"></span></td><td>
-		<span style="padding-left:4em"><input type="radio" name="output" value="false"></span></td></tr>
+		<input type="radio" name="output" value="1"></span></td><td>
+		<span style="padding-left:4em"><input type="radio" name="output" value="0"></span></td></tr>
 		<tr ><td>2. ความสมบูรณ์ของรายงานโครงงาน</td><td><span style="padding-left:4em">
-		<input type="radio" name="report_complet" value="true"></span></td><td>
-		<span style="padding-left:4em"><input type="radio" name="report_complet" value="false"></span></td></tr>
+		<input type="radio" name="report_complet" value="1"></span></td><td>
+		<span style="padding-left:4em"><input type="radio" name="report_complet" value="0"></span></td></tr>
 		<tr ><td>3. ความรู้ความเข้าใจของนิสิตเกี่ยวกับโครงงาน</td><td><span style="padding-left:4em">
-		<input type="radio" name="knowledge" value="true"></span></td><td>
-		<span style="padding-left:4em"><input type="radio" name="knowledge" value="false"></span></td></tr>
+		<input type="radio" name="knowledge" value="1"></span></td><td>
+		<span style="padding-left:4em"><input type="radio" name="knowledge" value="0"></span></td></tr>
 		<td></td><td></td><td></td>
 				
 	 </tbody>
@@ -392,23 +434,23 @@
         <th><center>หัวข้อ</center></th>
         <th><center>ผ่าน</center></th>
 		<th><center>ไม่ผ่าน</center></th>
-		<th><center>สมควรแก้ไข</center></th>
+		<!--<th><center>สมควรแก้ไข</center></th>-->
 		
       </tr>
     </thead>
 	<tbody>
 	
 		<tr ><td> &nbsp;&nbsp;&nbsp;&nbsp;ความเห็นของอาจารย์ผู้ประเมิน</td><td><span style="padding-left:5em">
-		<input type="radio" name="opinion_teacher" value="true"></span></td><td>
-		<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="false"></span></td><td>
-		<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="re-examine">สอบใหม่</span><br>
-		<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="not examine">ไม่ต้องสอบใหม่</span></td></tr>
+		<input type="radio" name="opinion_teacher" value="1"></span></td><td>
+		<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="0"></span></td>
+		<!--<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="re-examine">สอบใหม่</span><br>
+		<span style="padding-left:5em"><input type="radio" name="opinion_teacher" value="not examine">ไม่ต้องสอบใหม่</span></td></tr>--></tr>
 		
 		<tr ><td>&nbsp;&nbsp;&nbsp;&nbsp;มติกรรมการ</td><td><span style="padding-left:5em">
-		<input type="radio" name="board_resolution" value="true"></span></td><td>
-		<span style="padding-left:5em"><input type="radio" name="board_resolution" value="false"></span></td><td>
-		<span style="padding-left:5em"><input type="radio" name="board_resolution" value="re-examine">สอบใหม่</span><br>
-		<span style="padding-left:5em"><input type="radio" name="board_resolution" value="not examine">ไม่ต้องสอบใหม่</span></td></tr>
+		<input type="radio" name="board_resolution" value="1"></span></td><td>
+		<span style="padding-left:5em"><input type="radio" name="board_resolution" value="0"></span></td>
+		<!--<span style="padding-left:5em"><input type="radio" name="board_resolution" value="re-examine">สอบใหม่</span><br>
+		<span style="padding-left:5em"><input type="radio" name="board_resolution" value="not examine">ไม่ต้องสอบใหม่</span></td></tr>--></tr>
 		<td></td><td></td><td></td><td></td>
 		
 		
@@ -422,6 +464,7 @@
 	 <div class="cpe07_save">
 		<input class="btn btn-default" type="submit" name="cpe07_save" value="Save">
 	</div>
+	</form>
 	 <br><br>
 		</div>
   

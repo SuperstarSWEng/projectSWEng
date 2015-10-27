@@ -35,7 +35,7 @@
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	echo $objResult_SQL_progress["count"];
+	
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
@@ -44,7 +44,7 @@
 		$objQuery_SQL_progress = mysql_query($SQL_progress);
 		$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 		
-		echo $objResult_SQL_progress["count"];
+		
 		
 		if($objResult_SQL_progress["count"] > 0)
 		{
@@ -53,7 +53,7 @@
 			$objQuery_SQL_progress = mysql_query($SQL_progress);
 			$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 			
-			echo $objResult_SQL_progress["count"];
+			
 			
 			if($objResult_SQL_progress["count"] > 0)
 			{
@@ -62,7 +62,7 @@
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
-				echo $objResult_SQL_progress["count"];
+				
 				
 				if($$objResult_SQL_progress["count"] > 0)
 				{
@@ -71,7 +71,7 @@
 					$objQuery_SQL_progress = mysql_query($SQL_progress);
 					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 					
-					echo $objResult_SQL_progress["count"];
+					
 					
 					if($$objResult_SQL_progress["count"] > 0)
 					{
@@ -80,7 +80,7 @@
 						$objQuery_SQL_progress = mysql_query($SQL_progress);
 						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 						
-						echo $objResult_SQL_progress["count"];
+						
 						
 						if($$objResult_SQL_progress["count"] > 0)
 						{
@@ -89,7 +89,7 @@
 							$objQuery_SQL_progress = mysql_query($SQL_progress);
 							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 							
-							echo $objResult_SQL_progress["count"];
+							
 							
 							if($$objResult_SQL_progress["count"] > 0)
 							{
