@@ -106,6 +106,7 @@
         <th>Name EN</th>
 		<th>Status</th>
 		<th>Confirm</th>
+		<th>View</th>
       </tr>
     </thead>	
 	<tbody>
@@ -137,8 +138,14 @@
 			<form name="form1" method="post" action="confrim.php?idp=<?=$objResult3["ID_Project"]?>">
 				<input class="btn btn-default" type="submit" name="Confirm" value="Confirm">
 			</form>
-			
 			</div></td>
+			
+			<td><div align="left">
+			<form name="form1" method="post" action="Viewcpe01.php?idpv=<?=$objResult3["ID_Project"]?>">
+				<input class="btn btn-default" type="submit" name="View" value="View">
+			</form>	
+			</div></td>
+			
 		</tr>
 <?php
 		}
