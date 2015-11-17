@@ -16,14 +16,12 @@
 	mysql_select_db("cpe_db");
 	mysql_query("SET NAMES UTF8");
 	
-			$strSQL2 = "SELECT * FROM teacher WHERE ID_Teacher = '".$_SESSION['ID_Teacher']."' ";
-			$objQuery2 = mysql_query($strSQL2);
-			$objResult2 = mysql_fetch_array($objQuery2);
+	$strSQL2 = "SELECT * FROM teacher WHERE ID_Teacher = '".$_SESSION['ID_Teacher']."' ";
+	$objQuery2 = mysql_query($strSQL2);
+	$objResult2 = mysql_fetch_array($objQuery2);
 	
-			$strSQL3 = "SELECT * FROM project WHERE ID_Teacher = '".$_SESSION['ID_Teacher']."'";
-			$objQuery3 = mysql_query($strSQL3) or die ("Error Query [".$strSQL3."]");
-								
-	
+	$strSQL3 = "SELECT * FROM project WHERE ID_Teacher = '".$_SESSION['ID_Teacher']."'";
+	$objQuery3 = mysql_query($strSQL3) or die ("Error Query [".$strSQL3."]");
 	
 	
 ?>
@@ -65,11 +63,28 @@
 		}
 		else
 		{
-			echo "<li ><a href='index.php'>Home</a></li>";
-		echo "<li ><a href='more.php'>Detail Project</a></li>";
-		echo "<li class='active'><a href='loginsuccess.php'>View</a></li>";
-		echo "<li ><a href='logout.php'>Logout</a></li>";
-		echo "<li ><a href='about.php'>About</a></li>";
+			$status = "SELECT COUNT(Status_Project) as count FROM project WHERE Status_Project = 0 and ID_Teacher = '".$_SESSION['ID_Teacher']."'";
+			$objQuery_SQL_status = mysql_query($status);
+			$objResult_SQL_status = mysql_fetch_array($objQuery_SQL_status);
+			
+			if($objResult_SQL_status["count"] == 0)
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li ><a href='cpe04.php'>CPE</a></li>";
+				echo "<li class='active'><a href='loginsuccess.php'>View</a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
+			else
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li ><a href='cpe04.php'>CPE</a></li>";
+				echo "<li class='active'><a href='loginsuccess.php'>View<sup style='padding:5px; color:red'>".$objResult_SQL_status["count"]."</sup></a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
 		}
 		
 		
@@ -81,7 +96,7 @@
 		echo "<li ><a href='more.php'>Detail Project</a></li>";
 		echo "<li ><a href='ALLCPE.php'>CPE</a></li>";
 		echo "<li class='active'><a href='loginsuccess.php'>View</a></li>";
-		echo "<li ><a href='logout.php'>Logout</a></li>";
+		echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
 		echo "<li ><a href='about.php'>About</a></li>";
 		
 	}
@@ -136,7 +151,15 @@
 			</div></td>
 			<td><div align="left">
 			<form name="form1" method="post" action="confrim.php?idp=<?=$objResult3["ID_Project"]?>">
-				<input class="btn btn-default" type="submit" name="Confirm" value="Confirm">
+				<?php
+				if($objResult3["Status_Project"]=="0")
+				{
+					echo "<input class='btn btn-default' type='submit' name='Confirm' value='Confirm'>";
+				}
+				else if($objResult3["Status_Project"]=="1")
+				{
+					echo "<input class='btn btn-default' disabled='disabled' type='submit' name='Confirm' value='Confirm'>";
+				}?>
 			</form>
 			</div></td>
 			

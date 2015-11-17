@@ -11,10 +11,6 @@
 	}
 	$ID_project = $idpv;
 	
-	$servername = "localhost";
-	$username = "root";
-	$password = "1234";
-	$dbname = "cpe_db";
 
 	mysql_connect("localhost","root","1234");
 	mysql_select_db("cpe_db");
@@ -75,11 +71,28 @@
 		}
 		else
 		{
-			echo "<li ><a href='index.php'>Home</a></li>";
-			echo "<li ><a href='more.php'>Detail Project</a></li>";
-			echo "<li ><a href='loginsuccess.php'>View</a></li>";
-			echo "<li ><a href='logout.php'>Logout</a></li>";
-			echo "<li ><a href='about.php'>About</a></li>";
+			$nontification = "SELECT COUNT(Status_Project) as count FROM project WHERE Status_Project = 0 and ID_Teacher = '".$_SESSION['ID_Teacher']."'";
+			$objQuery_SQL_nontification = mysql_query($nontification);
+			$objResult_SQL_nontification = mysql_fetch_array($objQuery_SQL_nontification);
+			
+			if($objResult_SQL_nontification["count"] == 0)
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li ><a href='cpe04.php'>CPE</a></li>";
+				echo "<li class='active'><a href='loginsuccess.php'>View</a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
+			else
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li ><a href='cpe04.php'>CPE</a></li>";
+				echo "<li class='active'><a href='loginsuccess.php'>View<sup style='padding:5px; color:red'>".$objResult_SQL_nontification["count"]."</sup></a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
 		}
 		
 		

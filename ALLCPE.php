@@ -31,71 +31,76 @@
 	$objQuery_SQL_progress = mysql_query($SQL_progress);
 	$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 	
-	//echo $objResult_SQL_progress["count"];
+	////////////echo $objResult_SQL_progress["count"];
 	
 	if($objResult_SQL_progress["count"] > 0)
 	{
-		$check  = 1;
-		$SQL_progress = "SELECT COUNT(ID_Project) as count FROM implemeting WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
-		$objQuery_SQL_progress = mysql_query($SQL_progress);
-		$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
-		
-		//echo $objResult_SQL_progress["count"];
-		
-		if($objResult_SQL_progress["count"] > 0)
+		if($objResult_SQL_status["Status_Project"] == "1")
 		{
-			$check  = 2;
-			$SQL_progress = "SELECT COUNT(ID_Project) as count FROM scope_project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+			$check  = 1;
+			$SQL_progress = "SELECT COUNT(ID_Project) as count FROM implemeting WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 			$objQuery_SQL_progress = mysql_query($SQL_progress);
 			$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
-			
-			//echo $objResult_SQL_progress["count"];
-			
+		
+		
+			////////////echo $objResult_SQL_progress["count"];
+		
 			if($objResult_SQL_progress["count"] > 0)
 			{
-				$check  = 3;
-				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM proposal_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+				$check  = 2;
+				$SQL_progress = "SELECT COUNT(ID_Project) as count FROM scope_project WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 				$objQuery_SQL_progress = mysql_query($SQL_progress);
 				$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 				
-				//echo $objResult_SQL_progress["count"];
+				////////////echo $objResult_SQL_progress["count"];
 				
-				if($$objResult_SQL_progress["count"] > 0)
+				if($objResult_SQL_progress["count"] > 0)
 				{
-					$check  = 4;
-					$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+					$check  = 3;
+					$SQL_progress = "SELECT COUNT(ID_Project) as count FROM proposal_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 					$objQuery_SQL_progress = mysql_query($SQL_progress);
 					$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 					
-					//echo $objResult_SQL_progress["count"];
+					////////////echo $objResult_SQL_progress["count"];
 					
 					if($$objResult_SQL_progress["count"] > 0)
 					{
-						$check  = 5;
-						$SQL_progress = "SELECT COUNT(ID_Project) as count FROM comment_adviser WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+						$check  = 4;
+						$SQL_progress = "SELECT COUNT(ID_Project) as count FROM progress_evalution WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 						$objQuery_SQL_progress = mysql_query($SQL_progress);
 						$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 						
-						//echo $objResult_SQL_progress["count"];
+						////////////echo $objResult_SQL_progress["count"];
 						
 						if($$objResult_SQL_progress["count"] > 0)
 						{
-							$check  = 6;
-							$SQL_progress = "SELECT COUNT(ID_Project) as count FROM test_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+							$check  = 5;
+							$SQL_progress = "SELECT COUNT(ID_Project) as count FROM comment_adviser WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
 							$objQuery_SQL_progress = mysql_query($SQL_progress);
 							$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
 							
-							//echo $objResult_SQL_progress["count"];
+							////////////echo $objResult_SQL_progress["count"];
 							
 							if($$objResult_SQL_progress["count"] > 0)
 							{
-								$check  = 7;
+								$check  = 6;
+								$SQL_progress = "SELECT COUNT(ID_Project) as count FROM test_eveluation WHERE ID_Project = '".$objResult_SQL_std1["ID_Project"]."'";
+								$objQuery_SQL_progress = mysql_query($SQL_progress);
+								$objResult_SQL_progress = mysql_fetch_array($objQuery_SQL_progress);
+								
+								////////////echo $objResult_SQL_progress["count"];
+								
+								if($$objResult_SQL_progress["count"] > 0)
+								{
+									$check  = 7;
+								}
 							}
 						}
 					}
 				}
 			}
-		}	
+		}
+			
 	}
 	else if($SQL_progress == 0)
 	{
@@ -119,6 +124,7 @@
 			<link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css" />
 		  
 		  <script src="js/script.js"></script>
+		
 	</head>
 	<body>
 		<div class="top_pic_page">
@@ -142,14 +148,31 @@
 		}
 		else
 		{
-			echo "<li ><a href='index.php'>Home</a></li>";
-			echo "<li ><a href='more.php'>Detail Project</a></li>";
-			echo "<li ><a href='loginsuccess.php'>View</a></li>";
-			echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
-			echo "<li ><a href='about.php'>About</a></li>";
-		}
-		
-		
+			$notification = "SELECT COUNT(Status_Project) as count FROM project WHERE Status_Project = 0 and ID_Teacher = '".$_SESSION['ID_Teacher']."'";
+			$objQuery_SQL_notification = mysql_query($notification);
+			$objResult_SQL_notification = mysql_fetch_array($objQuery_SQL_notification);
+			
+			//<span style="color:blue">blue</span>
+			
+			if($objResult_SQL_notification["count"] == 0)
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li class='active'><a href='cpe04.php'>CPE</a></li>";
+				echo "<li ><a href='loginsuccess.php'>View</a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
+			else
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li class='active'><a href='cpe04.php'>CPE</a></li>";
+				echo "<li ><a href='loginsuccess.php'>View<sup style='padding:5px; color:red'>".$objResult_SQL_notification["count"]."</sup></a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
+		}	
 	}
 	else
 	{
@@ -207,10 +230,10 @@
 			echo "<li class='active'><a href='#'>CPE01</a></li>";
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
 			echo "<li><a href='cpe03.php'>CPE03</a></li>";
-			echo "<li><a href='cpe04.php'>CPE04</a></li>";
-			echo "<li><a href='cpe05.php'>CPE05</a></li>";
-			echo "<li><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe04.php' style='pointer-events:none;cursor:default;'>CPE04</a></li>";
+			echo "<li><a href='cpe05.php' style='pointer-events:none;cursor:default;'>CPE05</a></li>";
+			echo "<li><a href='cpe06.php' style='pointer-events:none;cursor:default;'>CPE06</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		else if($check == 3)
 		{
@@ -218,9 +241,9 @@
 			echo "<li class = 'box-1'><a href='cpe02.php'>CPE02</a></li>";
 			echo "<li class = 'box-1'><a href='cpe03.php'>CPE03</a></li>";
 			echo "<li><a href='cpe04.php'>CPE04</a></li>";
-			echo "<li><a href='cpe05.php'>CPE05</a></li>";
-			echo "<li><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe05.php' style='pointer-events:none;cursor:default;'>CPE05</a></li>";
+			echo "<li><a href='cpe06.php' style='pointer-events:none;cursor:default;'>CPE06</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		else if($check == 4)
 		{
@@ -229,8 +252,8 @@
 			echo "<li class = 'box-1'><a href='cpe03.php'>CPE03</a></li>";
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li><a href='cpe05.php'>CPE05</a></li>";
-			echo "<li><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe06.php' style='pointer-events:none;cursor:default;'>CPE06</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		else if($check == 5)
 		{
@@ -240,7 +263,7 @@
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li class = 'box-1'><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		else if($check == 6)
 		{
@@ -250,7 +273,7 @@
 			echo "<li class = 'box-1'><a href='cpe04.php'>CPE04</a></li>";
 			echo "<li class = 'box-1'><a href='cpe05.php'>CPE05</a></li>";
 			echo "<li class = 'box-1'><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		else if($check == 7)
 		{
@@ -265,12 +288,12 @@
 		else
 		{
 			echo "<li class='active'><a href='#'>CPE01</a></li>";
-			echo "<li><a href='cpe02.php'>CPE02</a></li>";
-			echo "<li><a href='cpe03.php'>CPE03</a></li>";
-			echo "<li><a href='cpe04.php'>CPE04</a></li>";
-			echo "<li><a href='cpe05.php'>CPE05</a></li>";
-			echo "<li><a href='cpe06.php'>CPE06</a></li>";
-			echo "<li><a href='cpe07.php'>CPE07</a></li>";
+			echo "<li><a href='cpe02.php' style='pointer-events:none;cursor:default;'>CPE02</a></li>";
+			echo "<li><a href='cpe03.php' style='pointer-events:none;cursor:default;'>CPE03</a></li>";
+			echo "<li><a href='cpe04.php' style='pointer-events:none;cursor:default;'>CPE04</a></li>";
+			echo "<li><a href='cpe05.php' style='pointer-events:none;cursor:default;'>CPE05</a></li>";
+			echo "<li><a href='cpe06.php' style='pointer-events:none;cursor:default;'>CPE06</a></li>";
+			echo "<li><a href='cpe07.php' style='pointer-events:none;cursor:default;'>CPE07</a></li>";
 		}
 		
 	}
@@ -286,12 +309,12 @@
 		<form name="form1" method="post" action="###">	
 		
 			<div class="cpe01_name">
-				<input class="validate[required,custom[onlyThai]]" name="project_thai_name" size="30" type="text" id="form-control" placeholder="ชื่อภาษาไทย"
+				<input class="validate[required,custom[onlyThai]] form-control" name="project_thai_name" size="30" type="text" id="form-control" placeholder="ชื่อภาษาไทย"
 				value = "<?php echo $objResult_SQL_status["ProjectName_TH"]; ?>"
 				>
 				
 		<br><br>
-				<input class="validate[required,custom[onlyLetter]]" name="project_eng_name" size="30" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ"
+				<input class="validate[required,custom[onlyLetter]] form-control" name="project_eng_name" size="30" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ"
 				value = "<?php echo $objResult_SQL_status["ProjectName_EN"]; ?>"
 				>
 			</div>	
@@ -313,35 +336,35 @@
       <tr >
         <td>
 		<div class="cpe01_name_student">
-				<input class="validate[required,custom[onlyThai]]" name="std_name1" type="text" id="std_name1"  placeholder="ชื่อ 1" 
+				<input class="validate[required,custom[onlyThai]] form-control" name="std_name1" type="text" id="std_name1"  placeholder="ชื่อ 1" 
 				value = "<?php echo $objResult_SQL_std1["StudentFirstName"]; ?>"
 				>
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student">
-				<input class="validate[required,custom[onlyThai]]" name="std_lastname1" type="text" id="std_lastname1" placeholder="สกุล 1 "
+				<input class="validate[required,custom[onlyThai]] form-control" name="std_lastname1" type="text" id="std_lastname1" placeholder="สกุล 1 "
 				value = "<?php echo $objResult_SQL_std1["StudentLastName"]; ?>"
 				>
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_id">
-				<input class="validate[required,custom[ID]]" size="8" name="std_name_id1" type="text" id="std_name_id1" placeholder="รหัสนิสิต"
+				<input class="validate[required,custom[noSpecialCaracters]] form-control" size="8" name="std_name_id1" type="text" id="std_name_id1" placeholder="รหัสนิสิต"
 				value = "<?php echo $objResult_SQL_std1["Student_ID"]; ?>"
 				>
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_phone">
-				<input class="validate[required,custom[onlyNumber]]" size="10" name="std_name_phone1" type="text" id="std_name_phone1" placeholder="เบอร์โทรศัพท์"
+				<input class="validate[required,custom[onlyNumber]] form-control" size="10" name="std_name_phone1" type="text" id="std_name_phone1" placeholder="เบอร์โทรศัพท์"
 				value = "<?php echo $objResult_SQL_std1["Student_Tel"]; ?>"
 				>
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student_email">
-				<input class="validate[required,custom[email]]" size="20" name="std_name_email1" type="text" id="std_name_email1" placeholder="อีเมล"
+				<input class="validate[required,custom[email]] form-control" size="20" name="std_name_email1" type="text" id="std_name_email1" placeholder="อีเมล"
 				value = "<?php echo $objResult_SQL_std1["Student_Email"]; ?>"
 				>
 		</div>
@@ -350,54 +373,54 @@
       <tr >
         <td>
 		<div class="cpe01_name_student">
-				<input class="" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ 2">
+				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ 2">
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student">
-				<input class="" name="std_lastname2" type="text" id="std_lastname2" placeholder="สกุล 2 ">
+				<input class="form-control" name="std_lastname2" type="text" id="std_lastname2" placeholder="สกุล 2 ">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_id">
-				<input class="" size="8" name="std_name_id2" type="text" id="std_name_id2" placeholder="รหัสนิสิต">
+				<input class="form-control" size="8" name="std_name_id2" type="text" id="std_name_id2" placeholder="รหัสนิสิต">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_phone">
-				<input class="" size="10" name="std_name_phone2" type="text" id="std_name_phone2" placeholder="เบอร์โทรศัพท์">
+				<input class="form-control" size="10" name="std_name_phone2" type="text" id="std_name_phone2" placeholder="เบอร์โทรศัพท์">
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student_email">
-				<input class="" size="20" name="std_name_email2" type="text" id="std_name_email2" placeholder="อีเมล">
+				<input class="form-control" size="20" name="std_name_email2" type="text" id="std_name_email2" placeholder="อีเมล">
 		</div>
 		</td>
       </tr>
       <tr >
         <td>
 		<div class="cpe01_name_student">
-				<input class="" name="std_name3" type="text" id="std_name3" placeholder="ชื่อ 3">
+				<input class="form-control" name="std_name3" type="text" id="std_name3" placeholder="ชื่อ 3">
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student">
-				<input class="" name="std_lastname3" type="text" id="std_lastname3" placeholder="สกุล 3 ">
+				<input class="form-control" name="std_lastname3" type="text" id="std_lastname3" placeholder="สกุล 3 ">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_id">
-				<input class="" size="8" name="std_name_id3" type="text" id="std_name_id3" placeholder="รหัสนิสิต">
+				<input class="form-control" size="8" name="std_name_id3" type="text" id="std_name_id3" placeholder="รหัสนิสิต">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student_phone">
-				<input class="" size="10" name="std_name_phone3" type="text" id="std_name_phone3" placeholder="เบอร์โทรศัพท์">
+				<input class="form-control" size="10" name="std_name_phone3" type="text" id="std_name_phone3" placeholder="เบอร์โทรศัพท์">
 		</div>
 		</td>
 		<td>
 		<div class="cpe01_name_student_email">
-				<input class="" size="20" name="std_name_email3" type="text" id="std_name_email3" placeholder="อีเมล">
+				<input class="form-control" size="20" name="std_name_email3" type="text" id="std_name_email3" placeholder="อีเมล">
 		</div>
 		</td>
       </tr>
@@ -419,17 +442,17 @@
       <tr >
         <td>
 		<div class="cpe01_name_student">
-				<input class="validate[required,custom[onlyThai]]" name="std_teacher1" type="text" id="std_teacher1" placeholder="อาจารย์ที่ปรึกษา">
+				<input class="validate[required,custom[onlyThai]] form-control" name="std_teacher1" type="text" id="std_teacher1" placeholder="อาจารย์ที่ปรึกษา">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student">
-				<input class="" name="std_teacher2" type="text" id="std_teacher2" placeholder="อาจารย์ที่ปรึกษาร่วม (ถ้ามี)">
+				<input class="form-control" name="std_teacher2" type="text" id="std_teacher2" placeholder="อาจารย์ที่ปรึกษาร่วม (ถ้ามี)">
 		</div>
 		</td>
         <td>
 		<div class="cpe01_name_student">
-				<input class="validate[required,custom[onlyThai]]" name="std_teacher3" type="text" id="std_teacher3" placeholder="เสนอรายชื่อกรรมการ 1 ท่าน">
+				<input class="validate[required,custom[onlyThai]] form-control" name="std_teacher3" type="text" id="std_teacher3" placeholder="เสนอรายชื่อกรรมการ 1 ท่าน">
 		</div>
 		</td>
       </tr>

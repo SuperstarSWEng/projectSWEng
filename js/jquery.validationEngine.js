@@ -53,10 +53,10 @@ jQuery.fn.validationEngine = function(settings) {
 							"regex":"/^[0-9a-zA-Z]+$/",
 							"alertText":"* No special caracters allowed"},	
 						"onlyLetter":{
-							"regex":"/^[a-zA-Z]+$/",
+							"regex":"/^[a-zA-Z ]+$/",
 							"alertText":"* Letters only"},
 						"onlyThai":{
-							"regex":"/^[ก-๙]+$/",
+							"regex":"/^[ก-๙ ]+$/",
 							"alertText":"* ภาษาไทยเท่านั้น"}
 					}	
 	}

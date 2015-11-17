@@ -144,13 +144,31 @@
 		}
 		else
 		{
-			echo "<li ><a href='index.php'>Home</a></li>";
-			echo "<li ><a href='more.php'>Detail Project</a></li>";
-			echo "<li ><a href='loginsuccess.php'>View</a></li>";
-			echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
-			echo "<li ><a href='about.php'>About</a></li>";
+			$status = "SELECT COUNT(Status_Project) as count FROM project WHERE Status_Project = 0 and ID_Teacher = '".$_SESSION['ID_Teacher']."'";
+			$objQuery_SQL_status = mysql_query($status);
+			$objResult_SQL_status = mysql_fetch_array($objQuery_SQL_status);
+			
+			//<span style="color:blue">blue</span>
+			
+			if($objResult_SQL_status["count"] == 0)
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li class='active'><a href='cpe04.php'>CPE</a></li>";
+				echo "<li ><a href='loginsuccess.php'>View</a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
+			else
+			{
+				echo "<li ><a href='index.php'>Home</a></li>";
+				echo "<li ><a href='more.php'>Detail Project</a></li>";
+				echo "<li class='active'><a href='cpe04.php'>CPE</a></li>";
+				echo "<li ><a href='loginsuccess.php'>View<sup style='padding:5px; color:red'>".$objResult_SQL_status["count"]."</sup></a></li>";
+				echo "<li class='box-2'><a href='logout.php'>Logout</a></li>";
+				echo "<li ><a href='about.php'>About</a></li>";
+			}
 		}
-		
 		
 	}
 	else
@@ -189,6 +207,10 @@
 		else
 		{
 			//header("location:loginsuccess_techer.php");
+			echo "<li><a href='cpe04.php'>CPE04</a></li>";
+			echo "<li class = 'active'><a href='#'>CPE05</a></li>";
+			echo "<li><a href='cpe06.php'>CPE06</a></li>";
+			echo "<li><a href='cpe07.php'>CPE07</a></li>";
 		}
 		
 		
@@ -291,7 +313,7 @@
 			<input class="form-control" name="ID_project" type="text" id="ID_project" placeholder=" รหัสโครงงาน"
 			value = "<?php 
 			
-				echo $objResult_SQL_std1["ID_Project"];
+				//echo $objResult_SQL_std1["ID_Project"];
 			
 			?>"
 			>
@@ -302,7 +324,7 @@
 				<input class="form-control" name="project_thai_name" type="text" id="project_thai_name" placeholder="ชื่อภาษาไทย"
 					value = "<?php 
 			
-				echo $objResult_SQL_status["ProjectName_TH"];
+				//echo $objResult_SQL_status["ProjectName_TH"];
 			
 			?>"
 				>
@@ -311,7 +333,7 @@
 				<input class="form-control" name="project_eng_name" type="text" id="project_eng_name" placeholder="ชื่อภาษาอังกฤษ"
 					value = "<?php 
 			
-				echo $objResult_SQL_status["ProjectName_EN"];
+				//echo $objResult_SQL_status["ProjectName_EN"];
 			
 			?>"
 				>
@@ -336,7 +358,7 @@
         <td>
 		<div class="cpe05_name_student_id">
 				<input class="form-control" name="std_name_id1" type="text" id="std_name_id1" placeholder="รหัสนิสิต"
-				value = "<?php echo $objResult_SQL_std1["Student_ID"]; 
+				value = "<?php //echo $objResult_SQL_std1["Student_ID"]; 
 				
 				?>"
 				>
@@ -345,7 +367,7 @@
         <td>
 		<div class="cpe05_name_student_id">
 				<input class="form-control" name="std_name_id2" type="text" id="std_name_id2" placeholder="รหัสนิสิต"
-				value = "<?php echo $member2result["Student_ID"]; 
+				value = "<?php //echo $member2result["Student_ID"]; 
 				
 				?>"
 				>
@@ -364,7 +386,7 @@
         <td>
 		<div class="cpe05_name_student_id">
 				<input class="form-control" name="std_name1" type="text" id="std_name1" placeholder="ชื่อ-สกุล 1"
-				value = "<?php echo $objResult_SQL_std1["StudentFirstName"] , " ", $objResult_SQL_std1["StudentLastName"]; 
+				value = "<?php //echo $objResult_SQL_std1["StudentFirstName"] , " ", $objResult_SQL_std1["StudentLastName"]; 
 				
 				?>"
 				>
@@ -373,7 +395,7 @@
         <td>
 		<div class="cpe05_name_student_id">
 				<input class="form-control" name="std_name2" type="text" id="std_name2" placeholder="ชื่อ-สกุล 2"
-				value = "<?php echo $member2result["StudentFirstName"] , " ", $member2result["StudentLastName"]; 
+				value = "<?php //echo $member2result["StudentFirstName"] , " ", $member2result["StudentLastName"]; 
 				
 				?>"
 				>
@@ -449,7 +471,20 @@
 	
 	 <br><br><br>
 	 <div class="cpe05_save">
-		<input class="btn btn-default" type="submit" name="cpe05_save" value="Save">
+		<?php
+		if($_SESSION['Student_ID'] == "")
+		{
+			if($_SESSION['ID_Teacher'] == "")
+			{
+				header("location:login.php");
+			}
+			else
+			{
+				//header("location:loginsuccess_techer.php");
+				echo "<input class='btn btn-default' type='submit' name='cpe05_save' value='Save'>";
+			}	
+		}
+		?>
 	</div>
 	</form>
 	 <br><br>

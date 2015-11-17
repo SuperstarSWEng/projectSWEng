@@ -31,7 +31,7 @@
   line-height: 1;
 }
 #cssmenucpe ul {
-  background: #ffffff;
+  background: #F8F8FF;
 }
 #cssmenucpe > ul > li {
   float: left;
@@ -68,6 +68,7 @@
 }
 #cssmenucpe > ul > li.active > a,
 #cssmenucpe > ul > li:hover > a,
+
 #cssmenucpe > ul > li > a:hover {
   color: #ffffff;
 }
